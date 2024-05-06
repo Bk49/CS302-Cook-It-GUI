@@ -2,8 +2,8 @@ import axios from "axios";
 
 const configureInstance = (instanceUrl: string) => ({
     baseURL: import.meta.env.DEV ? 
-        `${import.meta.env.VITE_DEVELOPMENT_PROXY_SERVER}/${instanceUrl}` :
-        `${import.meta.env.VITE_PRODUCTION_PROXY_SERVER}/${instanceUrl}`,
+        `${import.meta.env.VITE_DEVELOPMENT_SERVER}/${instanceUrl}` :
+        `${import.meta.env.VITE_PRODUCTION_SERVER}/${instanceUrl}`,
     setTimeout: 1000,
 });
 
