@@ -27,3 +27,29 @@ This template contains a common entry point used for a lot of React projects tha
 - Set direction to your current remote with `git remote add origin <your_git_remote>`
 - Push it to your master branch in your remote repository `git push -u origin master`
 
+## Further Configuration to utilize everything in this template
+
+### Installing dependencies
+
+- Run `bun install` to install all the dependencies (This step requires you to have bun installed globally with `npm install -g bun`)
+- If you wished to run the dev build, run `bun run dev`. If you wished to build for production, run `bun run build` 
+
+### Styling
+
+- Import the font files into `src/assets`
+- Define the colors and fonts in `src/config/theme.ts`
+
+### ENV
+
+Create an `.env` file which should contain
+- `VITE_DEVELOPMENT_SERVER`: Value should be URL of the development server
+- `VITE_PRODUCTION_SERVER`: Value should be URL of the production server
+
+### Router
+
+- If the application contains authentication, create `ProtectedRoute` and `PublicRoute` under `src/pages/<folder_name_for_route_protection>`, then configure a custom hook `useProtectedRoute` and `usePublicRoute` to handle state based routing
+- Add in all the necessary pages and route to `src/config/router.tsx`
+
+# TA DA!
+
+That should be it! 😄
