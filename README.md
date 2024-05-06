@@ -14,21 +14,16 @@ This template contains a common entry point used for a lot of React projects tha
 
 ## How to use this template?
 
-- Clone this template with `git clone`
-- 
+### By cloning
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Clone this template with `git clone https://github.com/Bk49/React-Template.git`
+- Set direction to your current remote with `git remote add origin <your_git_remote>`
+- Push it to your master branch in your remote repository `git push -u origin master`
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### By zip file
+
+- Download contents as zip file
+- Initialize a git repository in the root directory with `git init`
+- Set direction to your current remote with `git remote add origin <your_git_remote>`
+- Push it to your master branch in your remote repository `git push -u origin master`
+
