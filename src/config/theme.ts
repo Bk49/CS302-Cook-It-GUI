@@ -1,26 +1,35 @@
+import { blue, green } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
-// import BebasNueue from "../fonts/bebas-neue/BebasNeue.woff2";
-// import CircularSpotifyLight from "../fonts/circular-spotify/CircularSpotifyTextLight.woff2";
-// import CircularSpotifyBold from "../fonts/circular-spotify/CircularSpotifyTextBold.woff2";
-// import Lato from "../fonts/lato/Lato-Regular.woff2";
-// import LatoBold from "../fonts/lato/Lato-Bold.woff2";
-// import LatoSemiboldItalic from "../fonts/lato/Lato-SemiBoldItalic.woff2";
 
+import PoppinsBlack from "../assets/fonts/poppins/Poppins-Black.woff2";
+import PoppinsBlackItalic from "../assets/fonts/poppins/Poppins-BlackItalic.woff2";
+import PoppinsBold from "../assets/fonts/poppins/Poppins-Bold.woff2";
+import PoppinsBoldItalic from "../assets/fonts/poppins/Poppins-BoldItalic.woff2";
+import PoppinsExtraBold from "../assets/fonts/poppins/Poppins-ExtraBold.woff2";
+import PoppinsExtraBoldItalic from "../assets/fonts/poppins/Poppins-ExtraBoldItalic.woff2";
+import PoppinsExtraLight from "../assets/fonts/poppins/Poppins-ExtraLight.woff2";
+import PoppinsExtraLightItalic from "../assets/fonts/poppins/Poppins-ExtraLightItalic.woff2";
+import PoppinsItalic from "../assets/fonts/poppins/Poppins-Italic.woff2";
+import PoppinsLight from "../assets/fonts/poppins/Poppins-Light.woff2";
+import PoppinsLightItalic from "../assets/fonts/poppins/Poppins-LightItalic.woff2";
+import PoppinsMedium from "../assets/fonts/poppins/Poppins-Medium.woff2";
+import PoppinsMediumItalic from "../assets/fonts/poppins/Poppins-MediumItalic.woff2";
+import PoppinsRegular from "../assets/fonts/poppins/Poppins-Regular.woff2";
+import PoppinsSemiBold from "../assets/fonts/poppins/Poppins-SemiBold.woff2";
+import PoppinsSemiBoldItalic from "../assets/fonts/poppins/Poppins-SemiBoldItalic.woff2";
+import PoppinsThin from "../assets/fonts/poppins/Poppins-Thin.woff2";
+import PoppinsThinItalic from "../assets/fonts/poppins/Poppins-ThinItalic.woff2";
 
-/**
- * Modify the types for the Typography module to remove h4, h5, h6, caption and overline
- */
-declare module "@mui/material/Typography" {
-    interface TypographyPropsVariantOverrides {
-        h4: false;
-        h5: false;
-        h6: false;
-        caption: false;
-        overline: false;
-    }
-}
-
-const theme = createTheme();
+import CormorantGaramondBold from "../assets/fonts/cormorant-garamond/CormorantGaramond-Bold.woff2";
+import CormorantGaramondBoldItalic from "../assets/fonts/cormorant-garamond/CormorantGaramond-BoldItalic.woff2";
+import CormorantGaramondItalic from "../assets/fonts/cormorant-garamond/CormorantGaramond-Italic.woff2";
+import CormorantGaramondLight from "../assets/fonts/cormorant-garamond/CormorantGaramond-Light.woff2";
+import CormorantGaramondLightItalic from "../assets/fonts/cormorant-garamond/CormorantGaramond-LightItalic.woff2";
+import CormorantGaramondMedium from "../assets/fonts/cormorant-garamond/CormorantGaramond-Medium.woff2";
+import CormorantGaramondMediumItalic from "../assets/fonts/cormorant-garamond/CormorantGaramond-MediumItalic.woff2";
+import CormorantGaramondRegular from "../assets/fonts/cormorant-garamond/CormorantGaramond-Regular.woff2";
+import CormorantGaramondSemiBold from "../assets/fonts/cormorant-garamond/CormorantGaramond-SemiBold.woff2";
+import CormorantGaramondSemiBoldItalic from "../assets/fonts/cormorant-garamond/CormorantGaramond-SemiBoldItalic.woff2";
 
 /**
  * Creates a new default theme for the application
@@ -33,188 +42,243 @@ const theme = createTheme();
  */
 export default createTheme({
     palette: {
-        // primary: {
-        //     main: "#651FFF",
-        //     light: "#834BFF",
-        //     dark: "#4615B2",
-        //     contrastText: "#fff",
-        // },
+        primary: {
+            main: green[700],
+            light: green[800],
+            dark: green[600],
+            contrastText: "#fff",
+        },
 
-        // secondary: {
-        //     main: "#00B0FF",
-        //     light: "#33BFFF",
-        //     dark: "#007BB2",
-        //     contrastText: "#fff",
-        // },
+        secondary: {
+            main: blue[500],
+            light: blue[700],
+            dark: blue[300],
+            contrastText: "#fff",
+        },
     },
 
     typography: {
-        fontFamily: ["BebasNueue", "CircularSpotify", "Lato"].join(","),
+        fontFamily: ["Poppins", "CormorantGaramond"].join(","),
 
         allVariants: {
-            textTransform: "none",
+            fontFamily: "Poppins",
         },
 
-        h1: {
-            fontFamily: "BebasNueue",
-            fontWeight: "400",
-            textTransform: "uppercase",
-            textAlign: "left",            fontSize: "3rem",
-            [theme.breakpoints.down("md")]: {
-                fontSize: "2.5rem",
-            },
-            [theme.breakpoints.down("sm")]: {
-                fontSize: "2rem",
-            },
+        h4: {
+            fontFamily: "CormorantGaramond",
         },
 
-        h2: {
-            fontFamily: "BebasNueue",
-            fontWeight: "400",
-            textTransform: "uppercase",
-            textAlign: "left",            fontSize: "2.25rem",
-            [theme.breakpoints.down("md")]: {
-                fontSize: "2rem",
-            },
-            [theme.breakpoints.down("sm")]: {
-                fontSize: "1.75rem",
-            },
+        h5: {
+            fontFamily: "CormorantGaramond",
         },
 
-        h3: {
-            fontFamily: "BebasNueue",
-            fontWeight: "400",
-            textTransform: "uppercase",
-            textAlign: "left",            fontSize: "2rem",
-            [theme.breakpoints.down("md")]: {
-                fontSize: "1.7rem",
-            },
-            [theme.breakpoints.down("sm")]: {
-                fontSize: "1.4rem",
-            },
+        h6: {
+            fontFamily: "CormorantGaramond",
         },
-
-        h4: undefined,
-        h5: undefined,
-        h6: undefined,
-
-        button: {
-            fontFamily: "CircularSpotify",
-            fontWeight: "bold",
-            fontSize: "0.9375rem",
-            [theme.breakpoints.down("md")]: {
-                fontSize: "0.8rem",
-            },
-            [theme.breakpoints.down("sm")]: {
-                fontSize: "0.7rem",
-            }
-        },
-
-        body1: {
-            fontFamily: "CircularSpotify",
-            fontSize: "1.25rem",
-            [theme.breakpoints.down("md")]: {
-                fontSize: "1.05rem",
-            },
-            [theme.breakpoints.down("sm")]: {
-                fontSize: "0.9rem",
-            }
-        },
-
-        body2: {
-            fontFamily: "CircularSpotify",
-            fontSize: "0.9375rem",
-            [theme.breakpoints.down("md")]: {
-                fontSize: "0.8rem",
-            },
-            [theme.breakpoints.down("sm")]: {
-                fontSize: "0.7rem",
-            }
-        },
-
-        subtitle1: {
-            fontFamily: "Lato",
-            fontSize: "1rem",
-            [theme.breakpoints.down("md")]: {
-                fontSize: "0.85rem",
-            },
-            [theme.breakpoints.down("sm")]: {
-                fontSize: "0.65rem",
-            }
-        },
-
-        subtitle2: {
-            fontFamily: "Lato",
-            fontSize: "0.75rem",
-            [theme.breakpoints.down("md")]: {
-                fontSize: "0.7rem",
-            },
-            [theme.breakpoints.down("sm")]: {
-                fontSize: "0.65rem",
-            }
-        },
-
-        caption: {
-            fontFamily: "Lato",
-            fontSize: "0.75rem",
-            [theme.breakpoints.down("md")]: {
-                fontSize: "0.7rem",
-            },
-            [theme.breakpoints.down("sm")]: {
-                fontSize: "0.65rem",
-            }
-        },
-        overline: undefined,
     },
 
-    // components: {
-    //     MuiCssBaseline: {
-    //         /**
-    //          * The following styles overrides declares the custom fonts used in the application
-    //          */
-    //         styleOverrides: `
-    //             @font-face {
-    //                 font-family: 'CircularSpotify';
-    //                 src: url(${CircularSpotifyBold}) format('woff2');
-    //                 font-weight: bold;
-    //                 font-style: normal;
-    //             }
+    components: {
+        MuiCssBaseline: {
+            /**
+             * The following styles overrides declares the custom fonts used in the application
+             */
+            styleOverrides: `
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsBlack}) format('woff2');
+                    font-weight: 900;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsBlackItalic}) format('woff2');
+                    font-weight: 900;
+                    font-style: italic;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsExtraBold}) format('woff2');
+                    font-weight: 800;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsExtraBoldItalic}) format('woff2');
+                    font-weight: 800;
+                    font-style: italic;
+                }
                 
-    //             @font-face {
-    //                 font-family: 'CircularSpotify';
-    //                 src: url(${CircularSpotifyLight}) format('woff2');
-    //                 font-weight: normal;
-    //                 font-style: normal;
-    //             }
-                
-    //             @font-face {
-    //                 font-family: 'BebasNueue';
-    //                 src: url(${BebasNueue}) format('woff2');
-    //                 font-weight: normal;
-    //                 font-style: normal;
-    //             }
-                
-    //             @font-face {
-    //                 font-family: 'Lato';
-    //                 src: url(${LatoBold}) format('woff2');
-    //                 font-weight: bold;
-    //                 font-style: normal;
-    //             }
-                
-    //             @font-face {
-    //                 font-family: 'Lato';
-    //                 src: url(${Lato}) format('woff2');
-    //                 font-weight: normal;
-    //                 font-style: normal;
-    //             }
-                
-    //             @font-face {
-    //                 font-family: 'Lato';
-    //                 src: url(${LatoSemiboldItalic} format('woff2');
-    //                 font-weight: 500;
-    //                 font-style: italic;
-    //             }
-    //         `,
-    //     },
-    // },
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsBold}) format('woff2');
+                    font-weight: 700;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsBoldItalic}) format('woff2');
+                    font-weight: 700;
+                    font-style: italic;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsSemiBold}) format('woff2');
+                    font-weight: 600;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsSemiBoldItalic}) format('woff2');
+                    font-weight: 600;
+                    font-style: italic;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsMedium}) format('woff2');
+                    font-weight: 500;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsMediumItalic}) format('woff2');
+                    font-weight: 500;
+                    font-style: italic;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsRegular}) format('woff2');
+                    font-weight: 400;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsItalic}) format('woff2');
+                    font-weight: 400;
+                    font-style: italic;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsLight}) format('woff2');
+                    font-weight: 300;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsLightItalic}) format('woff2');
+                    font-weight: 300;
+                    font-style: italic;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsExtraLight}) format('woff2');
+                    font-weight: 200;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsExtraLightItalic}) format('woff2');
+                    font-weight: 200;
+                    font-style: italic;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsThin}) format('woff2');
+                    font-weight: 100;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'Poppins';
+                    src: url(${PoppinsThinItalic}) format('woff2');
+                    font-weight: 100;
+                    font-style: italic;
+                }
+
+                @font-face {
+                    font-family: 'CormorantGaramond';
+                    src: url(${CormorantGaramondBold}) format('woff2');
+                    font-weight: 700;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'CormorantGaramond';
+                    src: url(${CormorantGaramondBoldItalic}) format('woff2');
+                    font-weight: 700;
+                    font-style: italic;
+                }
+
+                @font-face {
+                    font-family: 'CormorantGaramond';
+                    src: url(${CormorantGaramondSemiBold}) format('woff2');
+                    font-weight: 600;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'CormorantGaramond';
+                    src: url(${CormorantGaramondSemiBoldItalic}) format('woff2');
+                    font-weight: 600;
+                    font-style: italic;
+                }
+
+                @font-face {
+                    font-family: 'CormorantGaramond';
+                    src: url(${CormorantGaramondMedium}) format('woff2');
+                    font-weight: 500;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'CormorantGaramond';
+                    src: url(${CormorantGaramondMediumItalic}) format('woff2');
+                    font-weight: 500;
+                    font-style: italic;
+                }
+
+                @font-face {
+                    font-family: 'CormorantGaramond';
+                    src: url(${CormorantGaramondRegular}) format('woff2');
+                    font-weight: 400;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'CormorantGaramond';
+                    src: url(${CormorantGaramondItalic}) format('woff2');
+                    font-weight: 400;
+                    font-style: italic;
+                }
+
+                @font-face {
+                    font-family: 'CormorantGaramond';
+                    src: url(${CormorantGaramondLight}) format('woff2');
+                    font-weight: 300;
+                    font-style: normal;
+                }
+
+                @font-face {
+                    font-family: 'CormorantGaramond';
+                    src: url(${CormorantGaramondLightItalic}) format('woff2');
+                    font-weight: 300;
+                    font-style: italic;
+                }
+            `,
+        },
+    },
 });
