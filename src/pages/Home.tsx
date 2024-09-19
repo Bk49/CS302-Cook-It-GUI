@@ -16,7 +16,6 @@ const Home: React.FC = () => {
             <Typography variant="subtitle2">Subtitle 2</Typography>
             <TextField label="Label" value={"Value"}/>
             <Button variant="contained">Submit</Button>
-
         </>
     );
 };
