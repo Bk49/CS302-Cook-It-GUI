@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import AppBar from "../components/common/nav/AppBar";
 
 interface RootLayoutProps {
     // : string;
@@ -8,8 +9,7 @@ interface RootLayoutProps {
 const RootLayout: React.FC<RootLayoutProps> = ({}) => {
     return (
         <>
-        {/* Add the app bar here */}
-        Root Layout
+            <AppBar />
             <Outlet />
         </>
     );
