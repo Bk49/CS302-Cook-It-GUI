@@ -41,6 +41,8 @@ const TextField: React.FC<TextFieldProps> = ({
     Icon,
     iconPosition,
     sx,
+    multiline,
+    rows,
     ...props
 }) => {
     const { control } = useFormContext();
@@ -54,6 +56,8 @@ const TextField: React.FC<TextFieldProps> = ({
             render={({ field, fieldState }) => (
                 <MuiTextField
                     {...field}
+                    multiline={multiline}
+                    rows={rows}
                     sx={sx}
                     error={Boolean(fieldState.error)}
                     helperText={fieldState.error?.message}
