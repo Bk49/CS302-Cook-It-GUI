@@ -3,4 +3,5 @@ export default {
         recipe: ["weekly", "recipe"] as const,
         author: ["weekly", "author"] as const,
     },
+    profile: ["profile"] as const,
 };
