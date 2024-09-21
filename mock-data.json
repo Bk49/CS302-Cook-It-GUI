@@ -38,5 +38,37 @@
                 "is_favourite": true
             }
         ]
+    },
+    "/author/weekly": {
+        "get": [
+            {
+                "id": "1",
+                "name": "Phris Coskitt",
+                "img": "https://ca.slack-edge.com/T07DK5Q4V60-U07DDPUHR4M-4100e6df3628-512",
+                "recipes": 20,
+                "new_reviews": 20
+            },
+            {
+                "id": "2",
+                "name": "Lay Foo Thiang",
+                "img": "https://staffphoto.smu.edu.sg/s/lfthiang/100x120",
+                "recipes": 12,
+                "new_reviews": 21
+            },
+            {
+                "id": "3",
+                "name": "Rordon Gamsay",
+                "img": "https://pbs.twimg.com/profile_images/1448696882746695683/Jp2_LEBL_400x400.jpg",
+                "recipes": 10,
+                "new_reviews": 17
+            },
+            {
+                "id": "4",
+                "name": "Auncle Roggier",
+                "img": "https://static.wikia.nocookie.net/uncle-roger/images/6/68/UncleRoger.png/revision/latest?cb=20201220214854",
+                "recipes": 1,
+                "new_reviews": 14
+            }
+        ]
     }
 }
