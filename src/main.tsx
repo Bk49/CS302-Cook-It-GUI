@@ -16,6 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             clientId="GViWxcOKSaHQirXhpf0wtoweGB73CmWW"
             authorizationParams={{
                 redirect_uri: "http://localhost:3000",
+                audience: "http://localhost:4000/" 
             }}
         >
             <ThemeProvider theme={defaultTheme}>
