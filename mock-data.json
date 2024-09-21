@@ -70,5 +70,13 @@
                 "new_reviews": 14
             }
         ]
+    },
+    "/profile": {
+        "get": {
+            "first_name": "Phris",
+            "last_name": "Coskitt",
+            "about": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+            "email_pref": true
+        }
     }
 }
