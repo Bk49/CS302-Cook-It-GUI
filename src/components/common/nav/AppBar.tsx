@@ -1,3 +1,4 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import {
     Avatar,
     Box,
@@ -14,6 +15,15 @@ interface AppBarProps {}
 
 const AppBar: React.FC<AppBarProps> = ({}) => {
     const navigate = useNavigate();
+    // const { isAuthenticated, loginWithPopup, user, getAccessTokenSilently, getIdTokenClaims } = useAuth0();
+    const { isAuthenticated, loginWithPopup, user } = useAuth0();
+
+    // useEffect(() => {
+    //     if(isAuthenticated){
+    //         getAccessTokenSilently().then((res) => console.log(res) )
+    //         getIdTokenClaims().then((res) => console.log(res))
+    //     }
+    // }, [getAccessTokenSilently])
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -41,18 +51,42 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                         <Typography onClick={() => navigate("/recipe")}>
                             Discover
                         </Typography>
-                        <Typography onClick={() => navigate("/myrecipe")}>
-                            My Recipes
-                        </Typography>
-                        <Typography
-                            onClick={() => navigate("/recipe/favourite")}
-                        >
-                            Favourites
-                        </Typography>
-                        <Avatar
-                            onClick={() => navigate("/profile")}
-                            sx={{ ml: "1rem" }}
-                        />
+
+                        {isAuthenticated ? (
+                            <>
+                                <Typography
+                                    onClick={() => navigate("/myrecipe")}
+                                >
+                                    My Recipes
+                                </Typography>
+                                <Typography
+                                    onClick={() =>
+                                        navigate("/recipe/favourite")
+                                    }
+                                >
+                                    Favourites
+                                </Typography>
+                                {user?.picture ? (
+                                    <img
+                                        width={40}
+                                        height={40}
+                                        style={{ borderRadius: 100 }}
+                                        src={user?.picture}
+                                        onClick={() => navigate("/profile")}
+                                    />
+                                ) : (
+                                    <Avatar
+                                        onClick={() => navigate("/profile")}
+                                        sx={{ ml: "1rem" }}
+                                    />
+                                )}
+                            </>
+                        ) : (
+                            <Avatar
+                                onClick={() => loginWithPopup()}
+                                sx={{ ml: "1rem" }}
+                            />
+                        )}
                     </Grid>
                 </Toolbar>
             </MuiAppBar>

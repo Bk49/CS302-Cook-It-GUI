@@ -10,6 +10,7 @@ import AddRecipe from "../pages/my-recipes/AddRecipe";
 import EditRecipe from "../pages/my-recipes/EditRecipe";
 import RecipeReview from "../pages/my-recipes/RecipeReview";
 import RecipeDetailsLayout from "../pages/my-recipes/RecipeDetailsLayout";
+import ProtectedRoute from "../pages/route/ProtectedRoute";
 
 export default createBrowserRouter([
     {
@@ -19,7 +20,11 @@ export default createBrowserRouter([
             { path: "", element: <Home /> },
             {
                 path: "profile",
-                element: <Profile />,
+                element: (
+                    <ProtectedRoute>
+                        <Profile />
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: "recipe",
@@ -31,19 +36,35 @@ export default createBrowserRouter([
             },
             {
                 path: "recipe/favourites",
-                element: <FavouriteRecipes />,
+                element: (
+                    <ProtectedRoute>
+                        <FavouriteRecipes />
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: "myrecipe",
-                element: <MyRecipes />,
+                element: (
+                    <ProtectedRoute>
+                        <MyRecipes />
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: "myrecipe/add",
-                element: <AddRecipe />,
+                element: (
+                    <ProtectedRoute>
+                        <AddRecipe />
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: "myrecipe/:id",
-                element: <RecipeDetailsLayout />,
+                element: (
+                    <ProtectedRoute>
+                        <RecipeDetailsLayout />
+                    </ProtectedRoute>
+                ),
                 children: [
                     { path: "/myrecipe/:id/edit", element: <EditRecipe /> },
                     { path: "/myrecipe/:id/review", element: <RecipeReview /> },
