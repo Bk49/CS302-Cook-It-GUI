@@ -9,4 +9,4 @@ const configureInstance = (instanceUrl: string) => ({
 
 
 // Configure the instances by replacing the string for calling configureInstance
-export const logInstance = axios.create(configureInstance(""));
+export const graphQL = axios.create(configureInstance(""));

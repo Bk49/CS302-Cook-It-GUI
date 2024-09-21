@@ -1,0 +1,74 @@
+{
+    "/recipe/weekly": {
+        "get": [
+            {
+                "id": "1",
+                "name": "Nasi Lemak (Sambal Lebih)",
+                "img": "https://www.seriouseats.com/thmb/jurw_XoUko0sLM17lhIWseKvsyM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230309-NasiLemak-MichelleYip-Option1-8d0b9468c998495f91ef4ff6d3b5ab6b.jpg",
+                "author": "Phris Coskitt",
+                "total_time": 20,
+                "rating": 4.5,
+                "is_favourite": true
+            },
+            {
+                "id": "2",
+                "name": "Roti Prata",
+                "img": "https://cdn-ampoo.nitrocdn.com/sJAuKmfeUxAzUySBaNZcrlJDdLCdrxwS/assets/images/optimized/rev-ca28685/www.eatroamlive.com/beta/wp-content/uploads/2017/09/Roti-Prata-STB_edited-1.jpg",
+                "author": "Phris Coskitt",
+                "total_time": 15,
+                "rating": 4,
+                "is_favourite": false
+            },
+            {
+                "id": "3",
+                "name": "Lor Mee",
+                "img": "https://justafatboi.com/wp-content/uploads/2018/05/dscf1556-001-1300x867.jpg",
+                "author": "Phris Coskitt",
+                "total_time": 45,
+                "rating": 3.5,
+                "is_favourite": false
+            },
+            {
+                "id": "4",
+                "name": "Carbonara",
+                "img": "https://img.taste.com.au/VQQEL1x_/taste/2016/11/creamy-fettuccine-carbonara-105940-1.jpeg",
+                "author": "Phris Coskitt",
+                "total_time": 12,
+                "rating": 5,
+                "is_favourite": true
+            }
+        ]
+    },
+    "/author/weekly": {
+        "get": [
+            {
+                "id": "1",
+                "name": "Phris Coskitt",
+                "img": "https://ca.slack-edge.com/T07DK5Q4V60-U07DDPUHR4M-4100e6df3628-512",
+                "recipes": 20,
+                "new_reviews": 20
+            },
+            {
+                "id": "2",
+                "name": "Lay Foo Thiang",
+                "img": "https://staffphoto.smu.edu.sg/s/lfthiang/100x120",
+                "recipes": 12,
+                "new_reviews": 21
+            },
+            {
+                "id": "3",
+                "name": "Rordon Gamsay",
+                "img": "https://pbs.twimg.com/profile_images/1448696882746695683/Jp2_LEBL_400x400.jpg",
+                "recipes": 10,
+                "new_reviews": 17
+            },
+            {
+                "id": "4",
+                "name": "Auncle Roggier",
+                "img": "https://static.wikia.nocookie.net/uncle-roger/images/6/68/UncleRoger.png/revision/latest?cb=20201220214854",
+                "recipes": 1,
+                "new_reviews": 14
+            }
+        ]
+    }
+}
