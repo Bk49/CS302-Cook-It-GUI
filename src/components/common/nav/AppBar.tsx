@@ -72,6 +72,7 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                                         height={40}
                                         style={{ borderRadius: 100 }}
                                         src={user?.picture}
+                                        alt="Profile picture"
                                         onClick={() => navigate("/profile")}
                                     />
                                 ) : (

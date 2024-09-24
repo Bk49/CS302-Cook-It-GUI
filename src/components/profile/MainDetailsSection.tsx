@@ -33,6 +33,7 @@ const MainDetailsSection: React.FC<MainDetailsSectionProps> = ({}) => {
                         {user?.picture ? (
                             <img
                                 src={user?.picture}
+                                alt="Profile picture"
                                 style={{
                                     width: 150,
                                     height: 150,
