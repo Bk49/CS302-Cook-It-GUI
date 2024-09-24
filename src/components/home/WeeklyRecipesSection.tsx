@@ -36,10 +36,10 @@ const WeeklyRecipeSection: React.FC<WeeklyRecipeSectionProps> = ({}) => {
                     </Typography>
                 </Grid>
                 <Grid item>
-                    <Grid container spacing={4} justifyContent="center">
+                    <Grid container spacing={2}>
                         {recipes &&
                             recipes.map((recipe) => (
-                                <Grid xl={3} md={4} sm={6} xs={12} item key={recipe.id}>
+                                <Grid lg={3} md={4} sm={6} xs={12} item key={recipe.id}>
                                     <RecipeItemCard {...recipe} />
                                 </Grid>
                             ))}
