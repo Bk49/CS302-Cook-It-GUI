@@ -70,6 +70,7 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                                     <img
                                         width={40}
                                         height={40}
+                                        referrerPolicy="no-referrer"
                                         style={{ borderRadius: 100 }}
                                         src={user?.picture}
                                         alt="Profile picture"

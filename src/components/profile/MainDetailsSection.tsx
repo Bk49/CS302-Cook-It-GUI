@@ -32,6 +32,7 @@ const MainDetailsSection: React.FC<MainDetailsSectionProps> = ({}) => {
                     <Grid item>
                         {user?.picture ? (
                             <img
+                                referrerPolicy="no-referrer"
                                 src={user?.picture}
                                 alt="Profile picture"
                                 style={{
