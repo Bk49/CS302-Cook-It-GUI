@@ -11,6 +11,8 @@ This template contains a common entry point used for a lot of React projects tha
 - [Axios](https://axios-http.com/docs/intro): Provides a Promise-based framework to make network calls
 - [React router](https://reactrouter.com/en/main): Provides navigation for our SPA
 - [Notistack](https://notistack.com/): Snackbar provider for the application, will be generally used for error handling and success response relating to network calls or form validations
+- [DND-Kit](https://dndkit.com/): A boostrapper for drag and drop logic in the browser. Works with React Hook Form
+- [React Dropzone](https://react-dropzone.js.org/): A bootstrapper for handling the drag and drop files logic for faster file uploads to the web browser
 
 ## How to use this template?
 
