@@ -3,15 +3,17 @@ import React from "react";
 import HeroBannerBg from "../../assets/images/hero_banner.jpg";
 import SearchBar from "../common/form/SearchBar";
 
-interface HeroSectionProps {}
+interface HeroSectionProps {
+    hideIntro?: boolean;
+}
 
-const HeroSection: React.FC<HeroSectionProps> = ({}) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ hideIntro }) => {
     const fill = { height: "100%", width: "100%" };
 
     return (
         <Box
             sx={{
-                height: 389,
+                height: hideIntro ? 240 : 389,
                 width: "100%",
                 position: "relative",
             }}
@@ -41,18 +43,27 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
                     container
                     gap={9}
                 >
+                    {!hideIntro && (
+                        <Grid item>
+                            <Typography
+                                textAlign="center"
+                                color="white"
+                                variant="h3"
+                            >
+                                From your kitchen to mine
+                            </Typography>
+                            <Typography
+                                textAlign="center"
+                                color="white"
+                                variant="subtitle1"
+                            >
+                                Cook It! • Where Cuisines Meet
+                            </Typography>
+                        </Grid>
+                    )}
                     <Grid item>
-                        <Typography textAlign="center" color="white" variant="h3">
-                            From your kitchen to mine
-                        </Typography>
-                        <Typography textAlign="center" color="white" variant="subtitle1">
-                            Cook It! • Where Cuisines Meet
-                        </Typography>
+                        <SearchBar loc="home" />
                     </Grid>
-                    <Grid item>
-                        <SearchBar loc="home"/>
-                    </Grid>
-                    
                 </Grid>
             </Box>
         </Box>
