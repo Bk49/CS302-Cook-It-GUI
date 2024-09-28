@@ -40,7 +40,7 @@ const WeeklyRecipeSection: React.FC<WeeklyRecipeSectionProps> = ({}) => {
                         {recipes &&
                             recipes.map((recipe) => (
                                 <Grid lg={3} md={4} sm={6} xs={12} item key={recipe.id}>
-                                    <RecipeItemCard {...recipe} />
+                                    <RecipeItemCard {...recipe} to={`/recipe/${recipe.id}`} />
                                 </Grid>
                             ))}
                     </Grid>
