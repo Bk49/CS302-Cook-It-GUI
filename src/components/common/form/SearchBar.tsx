@@ -20,6 +20,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ loc }) => {
     return (
         <Controller
             control={control}
+            defaultValue=""
             name="search"
             render={({ field, fieldState }) => (
                 <TextField

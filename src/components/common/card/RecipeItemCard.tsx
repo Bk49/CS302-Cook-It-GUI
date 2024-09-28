@@ -9,28 +9,28 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 interface RecipeItemCardProps {
-    id: string
     img: string;
     name: string;
     author: string;
     total_time: number;
     rating: number;
     is_favourite: boolean;
+    to: string
 }
 
 const RecipeItemCard: React.FC<RecipeItemCardProps> = ({
-    id,
     img,
     name,
     author,
     total_time,
     rating,
     is_favourite,
+    to
 }) => {
     const navigate = useNavigate()
 
     return (
-        <Box width="100%" onClick={() => navigate(`/recipe/${id}`)}>
+        <Box width="100%" onClick={() => navigate(to)}>
             <Grid width="100%" container gap={1.5}>
                 <Grid item>
                     <Box width={320} height={240} position="relative">
