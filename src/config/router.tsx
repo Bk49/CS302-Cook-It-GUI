@@ -35,7 +35,7 @@ export default createBrowserRouter([
                 element: <RecipeDetails />,
             },
             {
-                path: "recipe/favourites",
+                path: "recipe/favourite",
                 element: (
                     <ProtectedRoute>
                         <FavouriteRecipes />
