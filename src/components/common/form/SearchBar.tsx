@@ -8,11 +8,9 @@ import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import SearchIcon from "@mui/icons-material/Search";
 
-interface SearchBarProps {
-    loc: "home" | "listing";
-}
+interface SearchBarProps {}
 
-const SearchBar: React.FC<SearchBarProps> = ({ loc }) => {
+const SearchBar: React.FC<SearchBarProps> = ({}) => {
     const { control } = useFormContext();
     const theme = useTheme();
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
@@ -33,11 +31,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ loc }) => {
                     error={Boolean(fieldState.error)}
                     helperText={fieldState.error?.message}
                     variant="filled"
-                    label={
-                        loc === "home"
-                            ? "What’s cooking today?"
-                            : "Search for a recipe"
-                    }
+                    label="What's cooking today?"
                     type="text"
                     InputProps={{
                         startAdornment: (
