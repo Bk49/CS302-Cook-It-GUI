@@ -1,13 +1,11 @@
+import { Auth0Provider } from "@auth0/auth0-react";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { SnackbarProvider } from "notistack";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import queryClient from "./config/query-client.ts";
-import { SnackbarProvider } from "notistack";
 import { RouterProvider } from "react-router-dom";
 import router from "./config/router.tsx";
 import defaultTheme from "./config/theme.ts";
-import { Auth0Provider } from "@auth0/auth0-react";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
@@ -16,16 +14,14 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             clientId="GViWxcOKSaHQirXhpf0wtoweGB73CmWW"
             authorizationParams={{
                 redirect_uri: "http://localhost:3000",
-                audience: "http://localhost:4000/" 
+                audience: "http://localhost:4000/",
             }}
         >
             <ThemeProvider theme={defaultTheme}>
-                <QueryClientProvider client={queryClient}>
-                    <SnackbarProvider>
-                        <CssBaseline />
-                        <RouterProvider router={router} />
-                    </SnackbarProvider>
-                </QueryClientProvider>
+                <SnackbarProvider>
+                    <CssBaseline />
+                    <RouterProvider router={router} />
+                </SnackbarProvider>
             </ThemeProvider>
         </Auth0Provider>
     </React.StrictMode>
