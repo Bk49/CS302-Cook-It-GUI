@@ -3,9 +3,9 @@ export interface RecipeItem {
     img: string;
     name: string;
     author: string;
-    total_time: number;
+    prep_time: number;
+    cook_time: number;
     rating: number;
-    is_favourite: boolean;
 }
 
 export interface RecipeDetails {
