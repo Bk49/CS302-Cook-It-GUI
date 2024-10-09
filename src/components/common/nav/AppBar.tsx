@@ -15,15 +15,7 @@ interface AppBarProps {}
 
 const AppBar: React.FC<AppBarProps> = ({}) => {
     const navigate = useNavigate();
-    // const { isAuthenticated, loginWithPopup, user, getAccessTokenSilently, getIdTokenClaims } = useAuth0();
     const { isAuthenticated, loginWithPopup, user } = useAuth0();
-
-    // useEffect(() => {
-    //     if(isAuthenticated){
-    //         getAccessTokenSilently().then((res) => console.log(res) )
-    //         getIdTokenClaims().then((res) => console.log(res))
-    //     }
-    // }, [getAccessTokenSilently])
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -48,23 +40,12 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                         alignItems="center"
                         gap={3}
                     >
-                        <Typography onClick={() => navigate("/recipe")}>
-                            Discover
-                        </Typography>
-
                         {isAuthenticated ? (
                             <>
                                 <Typography
                                     onClick={() => navigate("/myrecipe")}
                                 >
                                     My Recipes
-                                </Typography>
-                                <Typography
-                                    onClick={() =>
-                                        navigate("/recipe/favourite")
-                                    }
-                                >
-                                    Favourites
                                 </Typography>
                                 {user?.picture ? (
                                     <img
