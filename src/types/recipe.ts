@@ -2,10 +2,15 @@ export interface RecipeItem {
     id: string;
     img: string;
     name: string;
-    author: string;
+    author: RecipeItemAuthor;
     prep_time: number;
     cook_time: number;
     rating: number;
+}
+
+export interface RecipeItemAuthor {
+    first_name: string;
+    last_name: string;
 }
 
 export interface RecipeDetails {
