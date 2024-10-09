@@ -20,7 +20,7 @@ const RecipeListingSection: React.FC<RecipeListingSectionProps> = ({}) => {
                     data &&
                     (data.recipes as RecipeItem[])
                         .filter((e) =>
-                            searchVal.length > 0
+                            searchVal && searchVal.length > 0
                                 ? e.name.includes(searchVal)
                                 : true
                         )
