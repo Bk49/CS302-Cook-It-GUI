@@ -1,28 +1,25 @@
-import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
+import { ApolloClient, createHttpLink, from, InMemoryCache } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-const httpLink = createHttpLink({
+export const httpLink = createHttpLink({
     uri: import.meta.env.DEV
         ? `${import.meta.env.VITE_DEVELOPMENT_SERVER}/`
         : `${import.meta.env.VITE_PRODUCTION_SERVER}/`,
 });
 
-export const createApolloClient = (
-    getAccessTokenSilently: () => Promise<string>
-) => {
-    const authLink = setContext(async (_, { headers }) => {
-        const token = await getAccessTokenSilently();
+export const createAuthLink = (token?: string) =>
+    setContext((_, { headers }) => ({
+        headers: {
+            ...headers,
+            Authorization: token ? `Bearer ${token}` : "",
+        },
+    }));
 
-        return {
-            headers: {
-                ...headers,
-                Authorization: token ? `Bearer ${token}` : "",
-            },
-        };
-    });
+const authLink = createAuthLink("");
 
-    return new ApolloClient({
-        cache: new InMemoryCache(),
-        link: authLink.concat(httpLink),
-    });
-};
+const client = new ApolloClient({
+    cache: new InMemoryCache(),
+    link: from([authLink, httpLink]),
+});
+
+export default client
