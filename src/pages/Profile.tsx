@@ -5,17 +5,14 @@ import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import EmailPreferencesSection from "../components/profile/EmailPreferencesSection";
 import MainDetailsSection from "../components/profile/MainDetailsSection";
-import useGetProfile from "../custom-hooks/react-query/profile/useGetProfile";
 import editProfileSchema from "../zod-schema/edit-profile";
 
 interface ProfileProps {}
 
 const Profile: React.FC<ProfileProps> = ({}) => {
     const { logout } = useAuth0();
-    const { data: profile } = useGetProfile();
     const formState = useForm({
         resolver: zodResolver(editProfileSchema),
-        defaultValues: profile,
     });
 
     return (

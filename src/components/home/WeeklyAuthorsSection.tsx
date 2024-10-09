@@ -1,12 +1,10 @@
-import React from "react";
-import useWeeklyAuthors from "../../custom-hooks/react-query/weekly/useWeeklyAuthors";
 import { Container, Grid, Typography } from "@mui/material";
+import React from "react";
 import AuthorItemCard from "./AuthorItemCard";
 
 interface WeeklyAuthorsSectionProps {}
 
 const WeeklyAuthorsSection: React.FC<WeeklyAuthorsSectionProps> = ({}) => {
-    const { data: authors } = useWeeklyAuthors();
     return (
         <Container maxWidth="xl" sx={{ my: 4 }}>
             <Grid container gap={3} direction="column">
@@ -20,7 +18,7 @@ const WeeklyAuthorsSection: React.FC<WeeklyAuthorsSectionProps> = ({}) => {
                 </Grid>
                 <Grid item>
                     <Grid container spacing={4} justifyContent="center">
-                        {authors &&
+                        {/* {authors &&
                             authors.map((author) => (
                                 <Grid
                                     lg={3}
@@ -32,7 +30,7 @@ const WeeklyAuthorsSection: React.FC<WeeklyAuthorsSectionProps> = ({}) => {
                                 >
                                     <AuthorItemCard {...author} />
                                 </Grid>
-                            ))}
+                            ))} */}
                     </Grid>
                 </Grid>
             </Grid>
