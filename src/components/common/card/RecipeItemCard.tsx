@@ -1,8 +1,6 @@
 import {
-    BookmarkBorderRounded,
-    BookmarkRounded,
     Star,
-    TimerRounded,
+    TimerRounded
 } from "@mui/icons-material";
 import { Box, Grid, Rating, Typography } from "@mui/material";
 import React from "react";
@@ -14,8 +12,7 @@ interface RecipeItemCardProps {
     author: string;
     total_time: number;
     rating: number;
-    is_favourite: boolean;
-    to: string
+    to: string;
 }
 
 const RecipeItemCard: React.FC<RecipeItemCardProps> = ({
@@ -24,10 +21,9 @@ const RecipeItemCard: React.FC<RecipeItemCardProps> = ({
     author,
     total_time,
     rating,
-    is_favourite,
-    to
+    to,
 }) => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     return (
         <Box width="100%" onClick={() => navigate(to)}>
@@ -44,37 +40,6 @@ const RecipeItemCard: React.FC<RecipeItemCardProps> = ({
                             }}
                             src={img}
                         />
-                        <Box
-                            sx={{
-                                borderRadius: 1,
-                                background:
-                                    "linear-gradient(180deg, rgba(29, 29, 29, 0.60) 0%, rgba(29, 29, 29, 0.00) 25%)",
-                            }}
-                            width="100%"
-                            height="100%"
-                            position="absolute"
-                            zIndex={2}
-                        >
-                            {is_favourite ? (
-                                <BookmarkRounded
-                                    sx={{
-                                        position: "absolute",
-                                        top: 8,
-                                        right: 8,
-                                        color: "#FFC107",
-                                    }}
-                                />
-                            ) : (
-                                <BookmarkBorderRounded
-                                    sx={{
-                                        position: "absolute",
-                                        top: 8,
-                                        right: 8,
-                                        color: "rgba(255,255,255,0.54)",
-                                    }}
-                                />
-                            )}
-                        </Box>
                     </Box>
                 </Grid>
                 <Grid item width="100%">

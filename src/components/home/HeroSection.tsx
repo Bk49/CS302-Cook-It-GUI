@@ -62,7 +62,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ hideIntro }) => {
                         </Grid>
                     )}
                     <Grid item>
-                        <SearchBar loc="home" />
+                        <SearchBar />
                     </Grid>
                 </Grid>
             </Box>

@@ -1,28 +1,26 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import { InternalAxiosRequestConfig } from "axios";
 import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { graphQL } from "../axios/client";
 import AppBar from "../components/common/nav/AppBar";
+import { useAuth0 } from "@auth0/auth0-react";
+import { from, useApolloClient } from "@apollo/client";
+import { createAuthLink, httpLink } from "../apollo/client";
 
-interface RootLayoutProps {
-    // : string;
-}
+interface RootLayoutProps {}
 
 const RootLayout: React.FC<RootLayoutProps> = ({}) => {
     const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+    const client = useApolloClient();
 
     useEffect(() => {
         if (isAuthenticated) {
-            const configureInstance = async (
-                config: InternalAxiosRequestConfig
-            ) => {
-                config.headers.Authorization = `Bearer ${await getAccessTokenSilently()}`;
-                return config;
-            };
-            graphQL.interceptors.request.use(configureInstance);
+            getAccessTokenSilently().then((token) =>
+                client.setLink(from([createAuthLink(token), httpLink]))
+            );
+        } else {
+            client.setLink(from([createAuthLink(), httpLink]));
         }
-    }, [isAuthenticated]);
+    }, [isAuthenticated, getAccessTokenSilently]);
+
     return (
         <>
             <AppBar />
