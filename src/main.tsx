@@ -1,9 +1,11 @@
+import { ApolloProvider } from "@apollo/client";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { SnackbarProvider } from "notistack";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
+import client from "./apollo/client.ts";
 import router from "./config/router.tsx";
 import defaultTheme from "./config/theme.ts";
 
@@ -17,12 +19,14 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 audience: "http://localhost:4000/",
             }}
         >
-            <ThemeProvider theme={defaultTheme}>
-                <SnackbarProvider>
-                    <CssBaseline />
-                    <RouterProvider router={router} />
-                </SnackbarProvider>
-            </ThemeProvider>
+            <ApolloProvider client={client}>
+                <ThemeProvider theme={defaultTheme}>
+                    <SnackbarProvider>
+                        <CssBaseline />
+                        <RouterProvider router={router} />
+                    </SnackbarProvider>
+                </ThemeProvider>
+            </ApolloProvider>
         </Auth0Provider>
     </React.StrictMode>
 );
