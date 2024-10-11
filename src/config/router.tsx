@@ -4,7 +4,6 @@ import AddRecipe from "../pages/my-recipes/AddRecipe";
 import MyRecipes from "../pages/my-recipes/MyRecipes";
 import Profile from "../pages/Profile";
 import RecipeDetails from "../pages/recipe/RecipeDetails";
-import RecipeListing from "../pages/recipe/RecipeListing";
 import RootLayout from "../pages/RootLayout";
 import ProtectedRoute from "../pages/route/ProtectedRoute";
 
@@ -21,10 +20,6 @@ export default createBrowserRouter([
                         <Profile />
                     </ProtectedRoute>
                 ),
-            },
-            {
-                path: "recipe",
-                element: <RecipeListing />,
             },
             {
                 path: "recipe/:id",
