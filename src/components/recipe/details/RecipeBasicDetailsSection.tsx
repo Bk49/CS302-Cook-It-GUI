@@ -1,8 +1,4 @@
-import {
-    BookmarkRounded,
-    BookmarkBorderRounded,
-    Star,
-} from "@mui/icons-material";
+import { Star } from "@mui/icons-material";
 import { Grid, Rating, Typography } from "@mui/material";
 import React from "react";
 import { RecipeDetails } from "../../../types/recipe";
@@ -12,29 +8,13 @@ interface RecipeBasicDetailsSectionProps {
 }
 
 const RecipeBasicDetailsSection: React.FC<RecipeBasicDetailsSectionProps> = ({
-    recipe: { name, is_favourite, rating, author, created_at },
+    recipe: { name, rating, author, created_at },
 }) => {
+
     return (
         <Grid container direction="column" mb={3}>
             <Grid item>
                 <Grid container direction="row" alignItems="center" gap={2}>
-                    <Grid item>
-                        {is_favourite ? (
-                            <BookmarkRounded
-                                sx={{
-                                    fontSize: 40,
-                                    color: "#FFC107",
-                                }}
-                            />
-                        ) : (
-                            <BookmarkBorderRounded
-                                sx={{
-                                    fontSize: 40,
-                                    color: "rgba(255,255,255,0.54)",
-                                }}
-                            />
-                        )}
-                    </Grid>
                     <Grid item>
                         <Typography variant="h4" fontWeight={600}>
                             {name}
@@ -67,7 +47,7 @@ const RecipeBasicDetailsSection: React.FC<RecipeBasicDetailsSectionProps> = ({
                                 variant="subtitle2"
                                 color="secondary"
                             >
-                                {author}
+                                {`${author.first_name} ${author.last_name}`}
                             </Typography>
                         </Grid>
                     </Grid>
@@ -75,7 +55,9 @@ const RecipeBasicDetailsSection: React.FC<RecipeBasicDetailsSectionProps> = ({
                         <Typography variant="subtitle2">•</Typography>
                     </Grid>
                     <Grid item>
-                        <Typography variant="subtitle2">{created_at}</Typography>
+                        <Typography variant="subtitle2">
+                            {created_at}
+                        </Typography>
                     </Grid>
                 </Grid>
             </Grid>
