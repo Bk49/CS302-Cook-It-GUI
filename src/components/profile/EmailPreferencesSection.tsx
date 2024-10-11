@@ -8,7 +8,7 @@ const EmailPreferencesSection: React.FC<
     EmailPreferencesSectionProps
 > = ({}) => {
     const { control, watch } = useFormContext();
-    const emailPref = watch("email_pref");
+    const emailPref = watch("email_preferences");
 
     useEffect(() => {
         // TODO: Update email pref on backend based on backend API
@@ -20,7 +20,7 @@ const EmailPreferencesSection: React.FC<
             <Typography variant="h4">Email Preferences</Typography>
             <Box ml={2} my={3}>
                 <Controller
-                    name="email_pref"
+                    name="email_preferences"
                     control={control}
                     render={({ field }) => (
                         <FormControlLabel
