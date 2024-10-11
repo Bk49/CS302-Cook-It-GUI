@@ -16,7 +16,8 @@ const useRecipes = () => {
                     cook_time
                 }
             }
-        `
+        `,
+        { errorPolicy: "all" }
     );
 };
 
