@@ -3,4 +3,5 @@ export interface ProfileDetails {
     last_name: string;
     about_me: string;
     email_preferences: boolean;
+    id: string;
 }
