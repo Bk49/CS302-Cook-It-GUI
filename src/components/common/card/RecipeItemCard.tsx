@@ -1,10 +1,8 @@
-import {
-    Star,
-    TimerRounded
-} from "@mui/icons-material";
+import { Star, TimerRounded } from "@mui/icons-material";
 import { Box, Grid, Rating, Typography } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import DeleteRecipeDialog from "../../recipe/dialog/DeleteRecipeDialog";
 
 interface RecipeItemCardProps {
     img: string;
@@ -13,6 +11,8 @@ interface RecipeItemCardProps {
     total_time: number;
     rating: number;
     to: string;
+    isMyRecipe?: boolean;
+    id: string;
 }
 
 const RecipeItemCard: React.FC<RecipeItemCardProps> = ({
@@ -22,14 +22,21 @@ const RecipeItemCard: React.FC<RecipeItemCardProps> = ({
     total_time,
     rating,
     to,
+    isMyRecipe,
+    id,
 }) => {
     const navigate = useNavigate();
 
     return (
-        <Box width="100%" onClick={() => navigate(to)}>
+        <Box width="100%">
             <Grid width="100%" container gap={1.5}>
                 <Grid item>
-                    <Box width={320} height={240} position="relative">
+                    <Box
+                        onClick={() => navigate(to)}
+                        width={320}
+                        height={240}
+                        position="relative"
+                    >
                         <img
                             style={{
                                 width: "100%",
@@ -65,6 +72,11 @@ const RecipeItemCard: React.FC<RecipeItemCardProps> = ({
                             value={rating}
                             readOnly
                         />
+                        {isMyRecipe && (
+                            <Grid container direction="row" mt={2}>
+                                <DeleteRecipeDialog {...{ name, id }} />
+                            </Grid>
+                        )}
                     </Grid>
                 </Grid>
             </Grid>
