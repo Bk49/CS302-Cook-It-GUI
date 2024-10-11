@@ -17,11 +17,10 @@ export interface RecipeDetails {
     id: string;
     name: string;
     img?: string;
-    author: string;
+    author: RecipeItemAuthor;
     prep_time: number;
     cook_time: number;
     rating: number;
-    is_favourite: boolean;
     created_at: string;
     description: string;
     cuisine_type: string;
@@ -42,9 +41,11 @@ export interface PreparationStepItem {
 }
 
 export interface ReviewItem {
-    name: string;
+    id: string;
+    author: { email: string };
     image: string;
     rating: number;
     created_at: string;
     comment: string;
+    by: RecipeItemAuthor
 }
