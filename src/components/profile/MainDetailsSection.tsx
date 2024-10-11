@@ -80,7 +80,7 @@ const MainDetailsSection: React.FC<MainDetailsSectionProps> = ({}) => {
                                     multiline
                                     sx={{ width: 484 }}
                                     rows={3}
-                                    name="about"
+                                    name="about_me"
                                     label="About Me"
                                     variant="outlined"
                                 />
