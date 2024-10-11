@@ -11,14 +11,11 @@ const useProfile = () => {
         gql`
             mutation FindOrCreateUser {
                 findOrCreateUser {
-                    email
-                    _id
+                    id: _id
                     about_me
-                    created_at
                     email_preferences
                     first_name
                     last_name
-                    updated_at
                 }
             }
         `
