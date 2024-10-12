@@ -7,7 +7,7 @@ import { EditProfileI } from "../../zod-schema/edit-profile";
 const usePopulateMyProfile = (formState: UseFormReturn<EditProfileI>) => {
     const { isAuthenticated } = useAuth0();
     const [mutate, { data }] = useProfile();
-    const { setValue, reset } = formState;
+    const { reset } = formState;
 
     useEffect(() => {
         if (isAuthenticated) mutate();
@@ -15,13 +15,7 @@ const usePopulateMyProfile = (formState: UseFormReturn<EditProfileI>) => {
 
     useEffect(() => {
         if (data) {
-            const { about_me, first_name, last_name, email_preferences } = data;
-
-            reset();
-            setValue("about_me", about_me);
-            setValue("first_name", first_name);
-            setValue("last_name", last_name);
-            setValue("email_preferences", email_preferences);
+            reset(data);
         }
     }, [data]);
 };
