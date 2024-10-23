@@ -1,11 +1,10 @@
-import { Grid, Typography } from '@mui/material';
-import React from 'react';
-import TextField from '../../../common/form/TextField';
+import { Grid, Typography } from "@mui/material";
+import React from "react";
+import TextField from "../../../common/form/TextField";
 
-interface TimeSectionProps {
-}
+interface TimeSectionProps {}
 
-const TimeSection: React.FC<TimeSectionProps> = ({  }) => {
+const TimeSection: React.FC<TimeSectionProps> = ({}) => {
     return (
         <Grid container direction="column" gap={4} my={4}>
             <Grid item>
@@ -14,10 +13,18 @@ const TimeSection: React.FC<TimeSectionProps> = ({  }) => {
                         <Typography>Preparation Time</Typography>
                     </Grid>
                     <Grid item>
-                        <TextField label="hours" type='number' name='prep_time.hrs' />
+                        <TextField
+                            label="hours"
+                            type="number"
+                            name="prep_time.hrs"
+                        />
                     </Grid>
                     <Grid item>
-                        <TextField label="minutes" type='number' name='prep_time.mins'/>
+                        <TextField
+                            label="minutes"
+                            type="number"
+                            name="prep_time.mins"
+                        />
                     </Grid>
                 </Grid>
             </Grid>
@@ -28,10 +35,18 @@ const TimeSection: React.FC<TimeSectionProps> = ({  }) => {
                         <Typography>Cooking Time</Typography>
                     </Grid>
                     <Grid item>
-                        <TextField label="hours" type='number' name='cook_time.hrs' />
+                        <TextField
+                            label="hours"
+                            type="number"
+                            name="cook_time.hrs"
+                        />
                     </Grid>
                     <Grid item>
-                        <TextField label="minutes" type='number' name='cook_time.mins'/>
+                        <TextField
+                            label="minutes"
+                            type="number"
+                            name="cook_time.mins"
+                        />
                     </Grid>
                 </Grid>
             </Grid>
