@@ -8,6 +8,7 @@ import { RouterProvider } from "react-router-dom";
 import client from "./apollo/client.ts";
 import router from "./config/router.tsx";
 import defaultTheme from "./config/theme.ts";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
@@ -19,14 +20,16 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 audience: "http://localhost:4000/",
             }}
         >
-            <ApolloProvider client={client}>
-                <ThemeProvider theme={defaultTheme}>
-                    <SnackbarProvider>
-                        <CssBaseline />
-                        <RouterProvider router={router} />
-                    </SnackbarProvider>
-                </ThemeProvider>
-            </ApolloProvider>
+            <QueryClientProvider client={new QueryClient()}>
+                <ApolloProvider client={client}>
+                    <ThemeProvider theme={defaultTheme}>
+                        <SnackbarProvider>
+                            <CssBaseline />
+                            <RouterProvider router={router} />
+                        </SnackbarProvider>
+                    </ThemeProvider>
+                </ApolloProvider>
+            </QueryClientProvider>
         </Auth0Provider>
     </React.StrictMode>
 );
