@@ -1,19 +1,23 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import AddIcon from "@mui/icons-material/Add";
 import { Button, Container, Divider, Typography } from "@mui/material";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import AddIcon from "@mui/icons-material/Add";
-import RecipeBasicDetailsSection from "../../components/recipe/form/section/RecipeBasicDetailsSection";
-import TimeSection from "../../components/recipe/form/section/TimeSection";
 import IngredientsSection from "../../components/recipe/form/section/IngredientsSection";
 import PreparationStepSection from "../../components/recipe/form/section/PreparationStepSection";
-import { zodResolver } from "@hookform/resolvers/zod";
-import addRecipeSchema from "../../zod-schema/add-recipe";
+import RecipeBasicDetailsSection from "../../components/recipe/form/section/RecipeBasicDetailsSection";
+import TimeSection from "../../components/recipe/form/section/TimeSection";
+import useAddRecipe from "../../custom-hooks/react-query/useAddRecipe";
+import addRecipeSchema, { AddRecipeI } from "../../zod-schema/add-recipe";
 
 interface AddRecipeProps {}
 
 const AddRecipe: React.FC<AddRecipeProps> = ({}) => {
-    const formState = useForm({ resolver: zodResolver(addRecipeSchema) });
+    const formState = useForm<AddRecipeI>({
+        resolver: zodResolver(addRecipeSchema),
+    });
     const { handleSubmit } = formState;
+    const { mutate } = useAddRecipe();
 
     return (
         <FormProvider {...formState}>
@@ -32,7 +36,7 @@ const AddRecipe: React.FC<AddRecipeProps> = ({}) => {
                     variant="contained"
                     sx={{ float: "right" }}
                     onClick={handleSubmit(
-                        (data) => console.log(data),
+                        (data) => mutate(data),
                         (e) => console.log(e)
                     )}
                     endIcon={<AddIcon />}
