@@ -2,13 +2,13 @@ import * as z from "zod";
 import { cuisineOptions } from "../constants/Dropdown";
 
 const time_z = {
-    hrs: z.number().min(0).default(0),
-    mins: z.number().min(0).default(0),
+    hrs: z.coerce.number().min(0).default(0),
+    mins: z.coerce.number().min(0).default(0),
 };
 
 const addRecipeSchema = z.object({
     name: z.string().min(3),
-    portion_size: z.number().default(1),
+    portion_size: z.coerce.number().default(1),
     cuisine_type: z
         .enum(["", ...cuisineOptions.map(({ value }) => value)])
         .default("")
@@ -18,7 +18,7 @@ const addRecipeSchema = z.object({
     prep_time: z.object(time_z).required(),
     cook_time: z.object(time_z).required(),
     ingredients: z.array(
-        z.object({ name: z.string().min(1), quantity: z.string().min(1) })
+        z.object({ ingredient_name: z.string().min(1), quantity: z.string().min(1) })
     ),
     steps: z.array(
         z.object({
@@ -27,5 +27,7 @@ const addRecipeSchema = z.object({
         })
     ),
 });
+
+export type AddRecipeI = z.infer<typeof addRecipeSchema>
 
 export default addRecipeSchema;
