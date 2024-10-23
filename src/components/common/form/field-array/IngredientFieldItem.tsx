@@ -2,7 +2,6 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { Button, Grid } from "@mui/material";
 import React from "react";
 import { UseFieldArrayRemove } from "react-hook-form";
-import SingleSelectField from "../SingleSelectField";
 import TextField from "../TextField";
 
 interface IngredientFieldItemProps {
@@ -23,12 +22,9 @@ const IngredientFieldItem: React.FC<IngredientFieldItemProps> = ({
                 />
             </Grid>
             <Grid item>
-                {/* TODO: Still pending to integrate backend to know the ingredient list */}
-                <SingleSelectField
+                <TextField
                     label="Ingredient"
-                    options={[]}
-                    name={`ingredients.${row}.name`}
-                    emptySelectionStr="Select Ingredient"
+                    name={`ingredients.${row}.ingredient_name`}
                 />
             </Grid>
             <Grid item>
