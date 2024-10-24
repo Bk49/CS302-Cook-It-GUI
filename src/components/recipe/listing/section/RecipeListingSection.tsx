@@ -31,15 +31,18 @@ const RecipeListingSection: React.FC<RecipeListingSectionProps> = ({}) => {
                                 sm={6}
                                 xs={12}
                                 item
-                                key={recipe.id}
+                                key={recipe?.id}
                             >
                                 <RecipeItemCard
                                     {...recipe}
                                     total_time={
-                                        recipe.cook_time + recipe.prep_time
+                                        recipe?.cook_time && recipe?.prep_time
+                                            ? recipe.cook_time +
+                                              recipe.prep_time
+                                            : 0
                                     }
-                                    author={`${recipe.author.first_name} ${recipe.author.last_name}`}
-                                    to={`/recipe/${recipe.id}`}
+                                    author={`${recipe?.author.first_name ?? "John"} ${recipe?.author.last_name ?? "Doe"}`}
+                                    to={`/recipe/${recipe?.id}`}
                                 />
                             </Grid>
                         ))}
