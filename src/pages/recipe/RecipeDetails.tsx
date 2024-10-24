@@ -22,11 +22,7 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = ({}) => {
                 <>
                     <RecipeBasicDetailsSection recipe={data} />
                     <Grid container direction="column" gap={4}>
-                        {data.img && (
-                            <Grid item>
-                                <RecipeImage img={data.img} />
-                            </Grid>
-                        )}
+                        {data.img && <RecipeImage img={data.img} />}
                         <Grid item>
                             <RecipeDescriptionSection
                                 description={data.description}
