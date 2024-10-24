@@ -42,11 +42,27 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                     >
                         {isAuthenticated ? (
                             <>
-                                <Typography
+                                <Box
+                                    sx={{
+                                        cursor: "pointer",
+                                        padding: "10px 15px",
+                                        borderRadius: "4px", // Rounded corners
+                                        backgroundColor: "transparent", // Default background color
+                                        "&:hover": {
+                                            backgroundColor: "#d0d0d0",
+                                            color: "black", // Change text color on hover
+                                            textDecoration: "underline", // Add underline on hover
+                                        },
+                                    }}
+                                    onClick={() => navigate("/myrecipe")}
+                                >
+                                    <Typography>My Recipes</Typography>
+                                </Box>
+                                {/* <Typography
                                     onClick={() => navigate("/myrecipe")}
                                 >
                                     My Recipes
-                                </Typography>
+                                </Typography> */}
                                 {user?.picture ? (
                                     <img
                                         width={40}
