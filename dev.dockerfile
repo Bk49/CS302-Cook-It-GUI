@@ -3,7 +3,9 @@ WORKDIR /root/
 
 COPY package.json .
 
-RUN bun install
+COPY bun.lockb .
+
+RUN bun install --frozen-lockfile
 
 COPY . .
 
