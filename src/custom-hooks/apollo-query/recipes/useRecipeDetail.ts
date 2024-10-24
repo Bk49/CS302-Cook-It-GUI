@@ -44,7 +44,7 @@ const useRecipeDetails = (id?: string) => {
                 }
             }
         `,
-        { skip: !id, variables: { id } }
+        { skip: !id, variables: { id }, errorPolicy: "all" }
     );
     return { data: (data?.recipe as RecipeDetails) ?? undefined, ...rest };
 };
