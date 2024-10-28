@@ -13,11 +13,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
         <Auth0Provider
-            domain="dev-iu4kzoymxgg0vztn.us.auth0.com"
-            clientId="GViWxcOKSaHQirXhpf0wtoweGB73CmWW"
+            domain={import.meta.env.VITE_AUTH0_DOMAIN}
+            clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
             authorizationParams={{
-                redirect_uri: "http://localhost:3000",
-                audience: "http://localhost:4000/",
+                redirect_uri: import.meta.env.VITE_AUTH0_REDIRECT_URI,
+                audience: import.meta.env.VITE_AUTH0_AUDIENCE,
             }}
         >
             <QueryClientProvider client={new QueryClient()}>

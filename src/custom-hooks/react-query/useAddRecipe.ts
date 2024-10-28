@@ -43,15 +43,7 @@ const useAddRecipe = () => {
                 if (image) formData.append(`step_image_${index}`, image);
             });
 
-            const { data } = await axiosClient.post(
-                "api/v1/recipes",
-                formData,
-                {
-                    headers: {
-                        apikey: "Vf2fLqvZK2CpaT70SDq1vsoE",
-                    },
-                }
-            );
+            const { data } = await axiosClient.post("api/v1/recipes", formData);
 
             return data;
         },

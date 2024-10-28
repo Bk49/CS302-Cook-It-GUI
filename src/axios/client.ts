@@ -6,4 +6,7 @@ export const axiosClient = axios.create({
             ? import.meta.env.VITE_DEVELOPMENT_NGINX_SERVER
             : import.meta.env.VITE_PRODUCTION_NGINX_SERVER
     }`,
+    headers: {
+        apiKey: import.meta.env.VITE_NGINX_API_KEY,
+    },
 });
