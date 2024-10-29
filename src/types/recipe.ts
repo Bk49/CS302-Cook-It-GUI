@@ -11,6 +11,7 @@ export interface RecipeItem {
 export interface RecipeItemAuthor {
     first_name: string;
     last_name: string;
+    _id: string;
 }
 
 export interface RecipeDetails {
@@ -47,5 +48,5 @@ export interface ReviewItem {
     rating: number;
     created_at: string;
     comment: string;
-    by: RecipeItemAuthor
+    by: RecipeItemAuthor;
 }

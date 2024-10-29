@@ -43,6 +43,7 @@ export const GET_RECIPE_DETAILS = gql`
             author {
                 first_name
                 last_name
+                _id
             }
             cook_time
             created_at
@@ -90,6 +91,26 @@ export const GET_RECIPES = gql`
             }
             prep_time
             cook_time
+        }
+    }
+`;
+
+export const ADD_REVIEW = gql`
+    mutation CreateReview(
+        $recipe: String!
+        $author: String!
+        $by: String!
+        $rating: Int!
+        $comment: String
+    ) {
+        createReview(
+            recipe: $recipe
+            author: $author
+            by: $by
+            rating: $rating
+            comment: $comment
+        ) {
+            _id
         }
     }
 `;

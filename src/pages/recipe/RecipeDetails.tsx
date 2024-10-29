@@ -32,7 +32,7 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = ({}) => {
                         <RecipePreparationStepsSection
                             steps={data.steps ?? []}
                         />
-                        <RecipeReviewsSection />
+                        <RecipeReviewsSection {...data} />
                         <RecipeReviewListingSection
                             reviews={data.reviews ?? []}
                         />
