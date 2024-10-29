@@ -1,5 +1,5 @@
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
-import { Grid, Paper, Typography } from "@mui/material";
+import { FormHelperText, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 import Dropzone, { DropzoneProps } from "react-dropzone";
 import { Controller, useFormContext } from "react-hook-form";
@@ -15,55 +15,59 @@ const ImageDnD: React.FC<ImageDnDProps> = ({ name, ...rest }) => {
         <Controller
             name={name}
             control={control}
-            render={({ field: { onChange, value } }) => (
-                <Dropzone
-                    {...rest}
-                    onDrop={(acceptedFiles) => {
-                        onChange(acceptedFiles[0]);
-                        console.log(value);
-                    }}
-                >
-                    {({ getInputProps, getRootProps }) => (
-                        <Paper
-                            sx={{
-                                width: 320,
-                                height: 240,
-                                borderRadius: "8px",
-                            }}
-                            elevation={4}
-                            {...getRootProps()}
-                        >
-                            <input type="file" {...getInputProps()} />
-                            {value ? (
-                                <img
-                                    src={URL.createObjectURL(value)}
-                                    style={{
-                                        objectFit: "cover",
-                                        width: "100%",
-                                        height: "100%",
-                                        borderRadius: "8px",
-                                    }}
-                                />
-                            ) : (
-                                <Grid
-                                    container
-                                    direction="column"
-                                    alignItems="center"
-                                    justifyContent="center"
-                                    gap={1}
-                                    height="100%"
-                                >
-                                    <Grid item>
-                                        <AddAPhotoIcon fontSize="large" />
+            render={({ field: { onChange, value }, fieldState: { error } }) => (
+                <>
+                    <Dropzone
+                        {...rest}
+                        onDrop={(acceptedFiles) => onChange(acceptedFiles[0])}
+                    >
+                        {({ getInputProps, getRootProps }) => (
+                            <Paper
+                                sx={{
+                                    width: 320,
+                                    height: 240,
+                                    borderRadius: "8px",
+                                }}
+                                elevation={4}
+                                {...getRootProps()}
+                            >
+                                <input type="file" {...getInputProps()} />
+                                {value ? (
+                                    <img
+                                        src={URL.createObjectURL(value)}
+                                        style={{
+                                            objectFit: "cover",
+                                            width: "100%",
+                                            height: "100%",
+                                            borderRadius: "8px",
+                                        }}
+                                    />
+                                ) : (
+                                    <Grid
+                                        container
+                                        direction="column"
+                                        alignItems="center"
+                                        justifyContent="center"
+                                        gap={1}
+                                        height="100%"
+                                    >
+                                        <Grid item>
+                                            <AddAPhotoIcon fontSize="large" />
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography>
+                                                Add an image
+                                            </Typography>
+                                        </Grid>
                                     </Grid>
-                                    <Grid item>
-                                        <Typography>Add an image</Typography>
-                                    </Grid>
-                                </Grid>
-                            )}
-                        </Paper>
-                    )}
-                </Dropzone>
+                                )}
+                            </Paper>
+                        )}
+                    </Dropzone>
+                    <FormHelperText error={!!error}>
+                        {error?.message}
+                    </FormHelperText>
+                </>
             )}
         />
     );
