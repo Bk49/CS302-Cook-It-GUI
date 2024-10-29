@@ -1,7 +1,7 @@
 import { useApolloClient } from "@apollo/client";
 import { useMutation } from "@tanstack/react-query";
 import { enqueueSnackbar } from "notistack";
-import { useEffect } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { axiosClient } from "../../axios/client";
 import {
@@ -10,16 +10,12 @@ import {
     GET_RECIPES,
 } from "../../constants/GraphQLQueries";
 import { AddRecipeI } from "../../zod-schema/add-recipe";
-import useProfile from "../apollo-query/profile/useProfile";
+import { UserProfileContext } from "../context/UserProfile";
 
 const useAddRecipe = () => {
     const navigate = useNavigate();
     const client = useApolloClient();
-    const [getProfile, { data: profile }] = useProfile();
-
-    useEffect(() => {
-        getProfile();
-    }, [getProfile]);
+    const profile = useContext(UserProfileContext);
 
     return useMutation({
         mutationFn: async ({
@@ -54,12 +50,14 @@ const useAddRecipe = () => {
 
             const { data } = await axiosClient.post("api/v1/recipes", formData);
 
-            return data;
-        },
-        onSuccess: () => {
-            client.refetchQueries({
+            // Refetch the queries first before ending the processing
+            await client.refetchQueries({
                 include: [GET_MY_RECIPES, GET_RECIPE_DETAILS, GET_RECIPES],
             });
+
+            return data;
+        },
+        onSuccess: async () => {
             navigate("/myrecipe");
             enqueueSnackbar("Recipe has been successfully created", {
                 variant: "success",
