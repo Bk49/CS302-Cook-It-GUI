@@ -17,6 +17,7 @@ const useRecipes = () => {
                 }
             }
         `,
+        { errorPolicy: "all" }
     );
 };
 
