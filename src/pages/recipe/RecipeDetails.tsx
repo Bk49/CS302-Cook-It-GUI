@@ -23,29 +23,19 @@ const RecipeDetails: React.FC<RecipeDetailsProps> = ({}) => {
                     <RecipeBasicDetailsSection recipe={data} />
                     <Grid container direction="column" gap={4}>
                         {data.img && <RecipeImage img={data.img} />}
-                        <Grid item>
-                            <RecipeDescriptionSection
-                                description={data.description}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <RecipeIngredientsSection
-                                ingredients={data.ingredients ?? []}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <RecipePreparationStepsSection
-                                steps={data.steps ?? []}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <RecipeReviewsSection />
-                        </Grid>
-                        <Grid item>
-                            <RecipeReviewListingSection
-                                reviews={data.reviews ?? []}
-                            />
-                        </Grid>
+                        <RecipeDescriptionSection
+                            description={data.description}
+                        />
+                        <RecipeIngredientsSection
+                            ingredients={data.ingredients ?? []}
+                        />
+                        <RecipePreparationStepsSection
+                            steps={data.steps ?? []}
+                        />
+                        <RecipeReviewsSection />
+                        <RecipeReviewListingSection
+                            reviews={data.reviews ?? []}
+                        />
                     </Grid>
                 </>
             )}
