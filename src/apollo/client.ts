@@ -1,4 +1,9 @@
-import { ApolloClient, createHttpLink, from, InMemoryCache } from "@apollo/client";
+import {
+    ApolloClient,
+    createHttpLink,
+    from,
+    InMemoryCache,
+} from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
 export const httpLink = createHttpLink({
@@ -20,6 +25,16 @@ const authLink = createAuthLink("");
 const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: from([authLink, httpLink]),
+    // defaultOptions: {
+    //     watchQuery: {
+    //         fetchPolicy: "no-cache",
+    //         errorPolicy: "ignore",
+    //     },
+    //     query: {
+    //         fetchPolicy: "no-cache",
+    //         errorPolicy: "all",
+    //     },
+    // },
 });
 
-export default client
+export default client;
