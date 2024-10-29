@@ -1,4 +1,4 @@
-import { useApolloClient, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { enqueueSnackbar } from "notistack";
 import {
     DELETE_RECIPE,
@@ -8,20 +8,16 @@ import {
 } from "../../../constants/GraphQLQueries";
 
 const useDeleteRecipe = () => {
-    const client = useApolloClient();
-
     return useMutation(DELETE_RECIPE, {
-        onCompleted: (data) => {
-            if (!data.softDelByRecipeId) {
-                return enqueueSnackbar(
+        refetchQueries: [GET_MY_RECIPES, GET_RECIPE_DETAILS, GET_RECIPES],
+        onCompleted: async (data) => {
+            if (data.softDelByRecipeId === null || !data.softDelByRecipeId) {
+                enqueueSnackbar(
                     "There is an error deleting the recipe, please try again!",
                     { variant: "error" }
                 );
+                return;
             }
-
-            client.refetchQueries({
-                include: [GET_RECIPES, GET_MY_RECIPES, GET_RECIPE_DETAILS],
-            });
             enqueueSnackbar("Deletion of recipe is successful!", {
                 variant: "success",
             });
