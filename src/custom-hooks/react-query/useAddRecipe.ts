@@ -1,11 +1,20 @@
+import { useApolloClient } from "@apollo/client";
 import { useMutation } from "@tanstack/react-query";
+import { enqueueSnackbar } from "notistack";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { axiosClient } from "../../axios/client";
+import {
+    GET_MY_RECIPES,
+    GET_RECIPE_DETAILS,
+    GET_RECIPES,
+} from "../../constants/GraphQLQueries";
 import { AddRecipeI } from "../../zod-schema/add-recipe";
 import useProfile from "../apollo-query/profile/useProfile";
-import { useEffect } from "react";
-import { enqueueSnackbar } from "notistack";
 
 const useAddRecipe = () => {
+    const navigate = useNavigate();
+    const client = useApolloClient();
     const [getProfile, { data: profile }] = useProfile();
 
     useEffect(() => {
@@ -46,6 +55,15 @@ const useAddRecipe = () => {
             const { data } = await axiosClient.post("api/v1/recipes", formData);
 
             return data;
+        },
+        onSuccess: () => {
+            client.refetchQueries({
+                include: [GET_MY_RECIPES, GET_RECIPE_DETAILS, GET_RECIPES],
+            });
+            navigate("/myrecipe");
+            enqueueSnackbar("Recipe has been successfully created", {
+                variant: "success",
+            });
         },
         onError: (err) => {
             console.log(err);
