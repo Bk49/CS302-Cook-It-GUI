@@ -1,24 +1,8 @@
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { GET_RECIPES } from "../../../constants/GraphQLQueries";
 
 const useRecipes = () => {
-    return useQuery(
-        gql`
-            query Recipes {
-                recipes {
-                    id: _id
-                    name
-                    img: image
-                    author {
-                        first_name
-                        last_name
-                    }
-                    prep_time
-                    cook_time
-                }
-            }
-        `,
-        { errorPolicy: "all" }
-    );
+    return useQuery(GET_RECIPES, { errorPolicy: "all" });
 };
 
 export default useRecipes;
