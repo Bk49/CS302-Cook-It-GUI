@@ -18,34 +18,41 @@ const RecipeListingSection: React.FC<RecipeListingSectionProps> = ({}) => {
             <Grid container spacing={2}>
                 {!loading &&
                     data &&
-                    (data.recipes as RecipeItem[])
+                    (data.recipes as (RecipeItem | null)[])
                         .filter((e) =>
-                            searchVal && searchVal.length > 0
+                            searchVal && searchVal.length > 0 && e
                                 ? e.name.includes(searchVal)
                                 : true
                         )
-                        .map((recipe) => (
-                            <Grid
-                                lg={3}
-                                md={4}
-                                sm={6}
-                                xs={12}
-                                item
-                                key={recipe?.id}
-                            >
-                                <RecipeItemCard
-                                    {...recipe}
-                                    total_time={
-                                        recipe?.cook_time && recipe?.prep_time
-                                            ? recipe.cook_time +
-                                              recipe.prep_time
-                                            : 0
-                                    }
-                                    author={`${recipe?.author.first_name ?? "John"} ${recipe?.author.last_name ?? "Doe"}`}
-                                    to={`/recipe/${recipe?.id}`}
-                                />
-                            </Grid>
-                        ))}
+                        .map((recipe) =>
+                            !recipe ? (
+                                <></>
+                            ) : (
+                                <Grid
+                                    lg={3}
+                                    md={4}
+                                    sm={6}
+                                    xs={12}
+                                    item
+                                    key={recipe?.id}
+                                >
+                                    <RecipeItemCard
+                                        {...recipe}
+                                        total_time={
+                                            recipe?.cook_time &&
+                                            recipe?.prep_time
+                                                ? recipe.cook_time +
+                                                  recipe.prep_time
+                                                : 0
+                                        }
+                                        author={`${
+                                            recipe?.author.first_name ?? "John"
+                                        } ${recipe?.author.last_name ?? "Doe"}`}
+                                        to={`/recipe/${recipe?.id}`}
+                                    />
+                                </Grid>
+                            )
+                        )}
             </Grid>
         </Container>
     );
