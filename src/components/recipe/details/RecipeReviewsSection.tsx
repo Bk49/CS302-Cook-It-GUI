@@ -9,6 +9,7 @@ import RecipeRating from "../form/input/RecipeRating";
 import useAddReview from "../../../custom-hooks/apollo-query/review/useAddReview";
 import { UserProfileContext } from "../../../custom-hooks/context/UserProfile";
 import { RecipeItemAuthor } from "../../../types/recipe";
+import PlaceholderImage from "../../../assets/images/avatar-placeholder.png";
 
 interface RecipeReviewsSectionProps {
     id?: string;
@@ -45,6 +46,9 @@ const RecipeReviewsSection: React.FC<RecipeReviewsSectionProps> = ({
                             src={user?.picture}
                             width={128}
                             height={128}
+                            onError={(e) =>
+                                (e.currentTarget.src = PlaceholderImage)
+                            }
                         />
                     </Grid>
                     <Grid item xs>

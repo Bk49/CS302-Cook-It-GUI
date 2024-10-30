@@ -1,6 +1,7 @@
 import { Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 import { PreparationStepItem } from "../../../types/recipe";
+import PlaceholderImage from "../../../assets/images/recipe-placeholder.jpg";
 
 interface RecipePreparationStepsSectionProps {
     steps: PreparationStepItem[];
@@ -49,6 +50,9 @@ const RecipePreparationStepsSection: React.FC<
                                         maxHeight: 400,
                                         objectFit: "cover",
                                     }}
+                                    onError={(e) =>
+                                        (e.currentTarget.src = PlaceholderImage)
+                                    }
                                 />
                             </Paper>
                         )}

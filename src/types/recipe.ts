@@ -44,7 +44,6 @@ export interface PreparationStepItem {
 export interface ReviewItem {
     id: string;
     author: { email: string };
-    image: string;
     rating: number;
     created_at: string;
     comment: string;

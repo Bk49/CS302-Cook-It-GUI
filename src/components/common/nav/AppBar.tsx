@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import AppLogo from "../../../assets/images/logo/Cook It!.png";
+import PlaceholderImage from "../../../assets/images/avatar-placeholder.png";
 
 interface AppBarProps {}
 
@@ -58,11 +59,6 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                                 >
                                     <Typography>My Recipes</Typography>
                                 </Box>
-                                {/* <Typography
-                                    onClick={() => navigate("/myrecipe")}
-                                >
-                                    My Recipes
-                                </Typography> */}
                                 {user?.picture ? (
                                     <img
                                         width={40}
@@ -72,6 +68,9 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                                         src={user?.picture}
                                         alt="Profile picture"
                                         onClick={() => navigate("/profile")}
+                                        onError={(e) =>
+                                            (e.currentTarget.src = PlaceholderImage)
+                                        }
                                     />
                                 ) : (
                                     <Avatar

@@ -3,6 +3,7 @@ import { Box, Grid, Rating, Typography } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import DeleteRecipeDialog from "../../recipe/dialog/DeleteRecipeDialog";
+import PlaceholderImage from "../../../assets/images/recipe-placeholder.jpg";
 
 interface RecipeItemCardProps {
     img: string;
@@ -46,6 +47,9 @@ const RecipeItemCard: React.FC<RecipeItemCardProps> = ({
                                 position: "absolute",
                             }}
                             src={img}
+                            onError={(e) =>
+                                (e.currentTarget.src = PlaceholderImage)
+                            }
                         />
                     </Box>
                 </Grid>

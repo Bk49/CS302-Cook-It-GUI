@@ -3,6 +3,7 @@ import { FormHelperText, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 import Dropzone, { DropzoneProps } from "react-dropzone";
 import { Controller, useFormContext } from "react-hook-form";
+import PlaceholderImage from "../../../assets/images/avatar-placeholder.png";
 
 interface ImageDnDProps extends DropzoneProps {
     name: string;
@@ -41,7 +42,9 @@ const ImageDnD: React.FC<ImageDnDProps> = ({ name, ...rest }) => {
                                             height: "100%",
                                             borderRadius: "8px",
                                         }}
-                                    />
+                                        onError={(e) =>
+                                            (e.currentTarget.src = PlaceholderImage)
+                                        }                                    />
                                 ) : (
                                     <Grid
                                         container
