@@ -9,7 +9,7 @@ import {
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import TextField from "../common/form/TextField";
-import PlaceholderImage from "../../../assets/images/avatar-placeholder.png";
+import PlaceholderImage from "../../assets/images/avatar-placeholder.png";
 
 interface MainDetailsSectionProps {}
 
