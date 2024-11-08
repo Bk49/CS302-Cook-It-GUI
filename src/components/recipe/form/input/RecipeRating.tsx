@@ -16,7 +16,7 @@ const RecipeRating: React.FC<RecipeRatingProps> = ({ name }) => {
             defaultValue={0.0}
             render={({ field }) => (
                 <Rating
-                    precision={0.5}
+                    precision={1}
                     {...field}
                     onChange={(_, newVal) => field.onChange(newVal)}
                 />

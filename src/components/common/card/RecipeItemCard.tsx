@@ -72,7 +72,7 @@ const RecipeItemCard: React.FC<RecipeItemCardProps> = ({
                         </Grid>
                         <Rating
                             icon={<Star color="primary" />}
-                            precision={0.5}
+                            precision={1}
                             value={rating}
                             readOnly
                         />
