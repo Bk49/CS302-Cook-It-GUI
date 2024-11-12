@@ -25,16 +25,16 @@ const authLink = createAuthLink("");
 const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: from([authLink, httpLink]),
-    // defaultOptions: {
-    //     watchQuery: {
-    //         fetchPolicy: "no-cache",
-    //         errorPolicy: "ignore",
-    //     },
-    //     query: {
-    //         fetchPolicy: "no-cache",
-    //         errorPolicy: "all",
-    //     },
-    // },
+    defaultOptions: {
+        watchQuery: {
+            fetchPolicy: "no-cache",
+            errorPolicy: "ignore",
+        },
+        query: {
+            fetchPolicy: "no-cache",
+            errorPolicy: "all",
+        },
+    },
 });
 
 export default client;

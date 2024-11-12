@@ -91,6 +91,7 @@ export const GET_RECIPES = gql`
             }
             prep_time
             cook_time
+            rating
         }
     }
 `;
