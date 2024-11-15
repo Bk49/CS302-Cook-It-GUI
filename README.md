@@ -1,6 +1,6 @@
-# React Vite Project Template
+# CS302 CookIt! GUI
 
-This template contains a common entry point used for a lot of React projects that I will do
+A recipe exchange platform where its underlying backend software is done using multiple different languages in different microservices with Express GraphQL as API Gateway. Also uses Nginx API Gateway for creation of new recipes
 
 ## Technologies
 
