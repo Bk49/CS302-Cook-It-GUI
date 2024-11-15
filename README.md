@@ -13,21 +13,17 @@ This template contains a common entry point used for a lot of React projects tha
 - [Notistack](https://notistack.com/): Snackbar provider for the application, will be generally used for error handling and success response relating to network calls or form validations
 - [DND-Kit](https://dndkit.com/): A boostrapper for drag and drop logic in the browser. Works with React Hook Form
 - [React Dropzone](https://react-dropzone.js.org/): A bootstrapper for handling the drag and drop files logic for faster file uploads to the web browser
+- [ApolloClient](https://www.apollographql.com/docs/react): A comprehensive state management library for Javascript to manage data in GraphQL
 
-## How to use this template?
+## How to setup this project?
 
 ### By cloning
 
-- Clone this template with `git clone https://github.com/Bk49/React-Template.git`
-- Set direction to your current remote with `git remote add origin <your_git_remote>`
-- Push it to your master branch in your remote repository `git push -u origin master`
+- Clone this template with `git clone https://github.com/Bk49/CS302-Cook-It-GUI.git`
 
 ### By zip file
 
 - Download contents as zip file
-- Initialize a git repository in the root directory with `git init`
-- Set direction to your current remote with `git remote add origin <your_git_remote>`
-- Push it to your master branch in your remote repository `git push -u origin master`
 
 ## Further Configuration to utilize everything in this template
 
@@ -36,21 +32,9 @@ This template contains a common entry point used for a lot of React projects tha
 - Run `bun install` to install all the dependencies (This step requires you to have bun installed globally with `npm install -g bun`)
 - If you wished to run the dev build, run `bun run dev`. If you wished to build for production, run `bun run build` 
 
-### Styling
+### ENV Setup
 
-- Import the font files into `src/assets`
-- Define the colors and fonts in `src/config/theme.ts`
-
-### ENV
-
-Create an `.env` file which should contain
-- `VITE_DEVELOPMENT_SERVER`: Value should be URL of the development server
-- `VITE_PRODUCTION_SERVER`: Value should be URL of the production server
-
-### Router
-
-- If the application contains authentication, create `ProtectedRoute` and `PublicRoute` under `src/pages/<folder_name_for_route_protection>`, then configure a custom hook `useProtectedRoute` and `usePublicRoute` to handle state based routing
-- Add in all the necessary pages and route to `src/config/router.tsx`
+- Please message me if you wished to need it
 
 # TA DA!
 
